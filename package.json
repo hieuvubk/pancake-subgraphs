@@ -1,0 +1,35 @@
+{
+  "name": "exchange",
+  "description": "PancakeSwap Subgraph",
+  "version": "1.0.0",
+  "repository": "git@github.com:pancakeswap/pancake-subgraph.git",
+  "author": "PancakeSwap",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "codegen": "graph codegen subgraph_bsc.yaml",
+    "build": "graph build subgraph_bsc.yaml",
+    "create:chapel-local": "graph create balancer-labs/pancakeswap-chapel --node http://127.0.0.1:8020",
+    "create:bsc-local": "graph create balancer-labs/pancakeswap-bsc --node http://127.0.0.1:8020",
+    "create:bsc": "graph create balancer-labs/pancakeswap-bsc --node http://192.168.1.208:8020",
+    "deploy": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ pancakeswap/exchange subgraph.yaml",
+    "deploy:chapel-local": "graph deploy balancer-labs/pancakeswap-chapel subgraph_chapel.yaml --debug --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "deploy:bsc-local": "graph deploy balancer-labs/pancakeswap-bsc subgraph_bsc.yaml --debug --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020",
+    "create:chapel": "graph create balancer-labs/pancakeswap-chapel --node http://192.168.1.208:8020",
+    "deploy:chapel": "graph deploy balancer-labs/pancakeswap-chapel subgraph_chapel.yaml --debug --ipfs http://192.168.1.208:5001 --node http://192.168.1.208:8020",
+    "deploy:bsc": "graph deploy balancer-labs/pancakeswap-bsc subgraph_bsc.yaml --debug --ipfs http://192.168.1.208:5001 --node http://192.168.1.208:8020"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@graphprotocol/graph-cli": "^0.21.0",
+    "@graphprotocol/graph-ts": "^0.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.4.0",
+    "typescript": "^4.3.5"
+  }
+}
